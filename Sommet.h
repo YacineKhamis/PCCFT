@@ -27,8 +27,11 @@ public:
 
 	friend ostream & operator<<(ostream &os, Sommet &s);
 
+	void initialiserSommet();
 	int getCle();
 	void ajoutEtiquette(const Etiquette &e);
+	bool operator==(const Sommet &s);
+	bool ajoutPareto(const Etiquette &e);
 	~Sommet() {};
 };
 

@@ -78,12 +78,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Algo.h" />
     <ClInclude Include="Arc.h" />
     <ClInclude Include="Etiquette.h" />
     <ClInclude Include="Graphe.h" />
     <ClInclude Include="Sommet.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algo.cpp" />
     <ClCompile Include="Arc.cpp" />
     <ClCompile Include="Etiquette.cpp" />
     <ClCompile Include="Graphe.cpp" />
