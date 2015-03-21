@@ -1,4 +1,9 @@
 #pragma once
+
+//!
+//! \file Algo.h
+//!
+
 #include "Sommet.h"
 #include "Graphe.h"
 class Algo

@@ -1,22 +1,17 @@
+//!
+//! \file Graphe.cpp
+//!
 #include "Graphe.h"
 
-void Graphe::add(const Sommet &sommet)
+
+void Graphe::addSommet(const Sommet &sommet)
 {
 	this->sommets.push_back(sommet);
 }
-void Graphe::add(const Arc &arc)
+
+void Graphe::addArc(const Arc &arc)
 {
 	this->arcs.push_back(arc);
-}
-
-ostream & operator<<(ostream &os, Graphe &g)
-{
-	os << "------------Graphe---------------" << endl;
-	for (auto sommet : g.sommets)
-		os << sommet;
-	for (auto arc : g.arcs)
-		os << arc;
-	return os;
 }
 
 void Graphe::initialiserEtiquettesSommets()
@@ -36,13 +31,23 @@ vector<Sommet> Graphe::successeurs(const Sommet &s)
 	return solution;
 }
 
-Sommet* Graphe::getPtrSommet(int cle)
+//!
+//! \return pointeur sur le sommet si existe, NULL sinon
+//!
+Sommet* Graphe::getPtrSommet(int cle) const
 {
 	for (auto sommet : this->sommets)
 	{
 		if (sommet.cle == cle)
 			return &sommet;
 	}
+
+	return NULL;
+}
+
+Sommet Graphe::getSource() const
+{
+	return source;
 }
 
 void Graphe::setSource(const Sommet &s)
@@ -50,12 +55,17 @@ void Graphe::setSource(const Sommet &s)
 	this->source = s;
 }
 
+Sommet Graphe::getPuits() const
+{
+	return puits;
+}
+
 void Graphe::setPuits(const Sommet &s)
 {
 	this->puits = s;
 }
 
-Arc Graphe::getArcEntreDeux(int cleSommet1, int cleSommet2)
+Arc Graphe::getArcEntreDeux(int cleSommet1, int cleSommet2) const
 {
 	Arc solution;
 	for (auto arc : this->arcs)
@@ -66,6 +76,18 @@ Arc Graphe::getArcEntreDeux(int cleSommet1, int cleSommet2)
 	return solution;
 }
 
-Graphe::~Graphe()
+
+ostream & operator<<(ostream &os, Graphe &g)
 {
+	os << "------------- Graphe ---------------" << endl;
+	
+	os << endl;
+	for (auto sommet : g.sommets)
+		os << sommet;
+
+	os << endl;
+	for (auto arc : g.arcs)
+		os << arc;
+
+	return os;
 }

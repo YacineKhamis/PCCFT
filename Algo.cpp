@@ -1,13 +1,16 @@
+//!
+//! \file Algo.cpp
+//!
 #include "Algo.h"
 
 
-void Algo::fixationEtiquette(Graphe &g)
+/*static*/ void Algo::fixationEtiquette(Graphe &g)
 {
 	g.initialiserEtiquettesSommets();
 	vector<Sommet> ouverts;
-	ouverts.push_back(g.source);
+	ouverts.push_back(g.getSource());
 	Etiquette * e = new Etiquette(ouverts.back().cle,0,0);
-	g.source.ajoutEtiquette(*e);
+	g.getSource().ajoutEtiquette(*e);
 	while (!ouverts.empty())
 	{
 		Sommet sommetOuvert = ouverts.front();
@@ -32,13 +35,4 @@ void Algo::fixationEtiquette(Graphe &g)
 			}
 		}
 	}
-}
-
-Algo::Algo()
-{
-}
-
-
-Algo::~Algo()
-{
 }

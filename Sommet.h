@@ -1,37 +1,78 @@
 #pragma once
+
+//!
+//! \file Sommet.h
+//!
+
 #include <ostream>
 #include <vector>
 #include "Etiquette.h"
-
 using namespace std;
 
-/*
-*Objet Sommet muni d'une borne inf, d'une borne sup et d'une collection d'étiquette 
-*/
+//!
+//! \class Sommet 
+//! \brief muni d'une borne inf, d'une borne sup et d'une collection d'étiquette
+//!
 class Sommet
 {
 public:
-	//Borne sup et inf du sommet (contraintes)
+	//! \brief Borne sup et inf du sommet (contraintes)
 	int borneInf;
 	int borneSup;
 
-	//Cle permettant d'identifier le sommet
+	//! \brief Cle permettant d'identifier le sommet
 	int cle;
 
-	//Chaque sommet possède une collection d'étiquette
+	//! \brief Chaque sommet possède une collection d'étiquette
 	vector<Etiquette> etiquettes;
 
-	Sommet() : borneInf(0), borneSup(0), cle(0) {};
+	//!
+	//! \brief Construteur par defaut
+	//!
+	Sommet();
+	//!
+	//! \brief Construteur par copie
+	//!
 	Sommet(const Sommet &s);
-	Sommet(int inf, int sup, int cle): borneInf(inf), borneSup(sup), cle(cle) {};
+	//!
+	//! \brief Construteur
+	//!
+	Sommet(int inf, int sup, int cle); /*change par florian*/
 
-	friend ostream & operator<<(ostream &os, Sommet &s);
+	//!
+	//! \biref Destructeur
+	//!
+	virtual ~Sommet() /*change par florian*/
+	{}
 
+	//!
+	//! \brief initialise les sommets
+	//!
 	void initialiserSommet();
-	int getCle();
-	void ajoutEtiquette(const Etiquette &e);
-	bool operator==(const Sommet &s);
-	bool ajoutPareto(const Etiquette &e);
-	~Sommet() {};
-};
 
+	//!
+	//! \return cle
+	//!
+	int getCle() const;		/*ici const change*/
+
+	//!
+	//! \param e, const Etiquette &
+	//!
+	void ajoutEtiquette(const Etiquette &e);
+	
+	//!
+	//! \brief surcharge operateur == 
+	//!
+	bool operator==(const Sommet &s);
+	
+	//!
+	//! \brief Ajout Pareto.
+	//! \return true si l'élement a été ajouté, false sinon.
+	//!
+	bool ajoutPareto(const Etiquette &e);
+
+	//!
+	//! \brief surcharge operateur << 
+	//!
+	friend ostream & operator<<(ostream &os, Sommet &s);
+};

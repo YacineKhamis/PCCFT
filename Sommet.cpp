@@ -1,6 +1,17 @@
+//!
+//! \file Sommet.cpp
+//!
 #include "Sommet.h"
-using namespace std;
 
+
+Sommet::Sommet() : borneInf(0), borneSup(0), cle(0)
+{} /*change par florian*/
+
+Sommet::Sommet(const Sommet &s) : borneInf(s.borneInf), borneSup(s.borneSup), cle(s.cle), etiquettes(s.etiquettes)
+{} /*change par florian*/
+
+Sommet::Sommet(int inf, int sup, int cle) : borneInf(inf), borneSup(sup), cle(cle)
+{} /*change par florian*/
 
 ostream & operator<<(ostream &os, Sommet &s)
 {
@@ -11,15 +22,8 @@ ostream & operator<<(ostream &os, Sommet &s)
 	return os;
 }
 
-Sommet::Sommet(const Sommet &s)
-{
-	cle = s.cle;
-	borneInf = s.borneInf;
-	borneSup = s.borneSup;
-	etiquettes = s.etiquettes;
-}
 
-int Sommet::getCle()
+int Sommet::getCle() const
 {
 	return this->cle;
 }
@@ -39,7 +43,7 @@ bool Sommet::operator==(const Sommet &s)
 	return (this->borneInf == s.borneInf && this->borneSup == s.borneSup && this->cle == s.cle);
 }
 
-//Ajout Pareto. Renvoie vrai si l'élement a été ajouté, faux sinon.
+
 bool Sommet::ajoutPareto(const Etiquette &e)
 {
 	int i = 0;
@@ -61,5 +65,6 @@ bool Sommet::ajoutPareto(const Etiquette &e)
 		etiquettes.push_back(e);
 		return true;
 	}
+
 	return false;
 }

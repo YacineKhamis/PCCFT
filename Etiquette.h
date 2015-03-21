@@ -1,18 +1,46 @@
 #pragma once
+
+//!
+//! \file Etiquette.h
+//!
+
 #include <ostream>
-class Sommet;
 using namespace std;
 
+class Sommet;
+
+//!
+//! \class Etiquette
+//!
 class Etiquette
 {
 public:
-	//Sommet de provenance
+	//!
+	//! \brief Sommet de provenance
+	//!
 	int cleSommet;
 	int cout;
 	int ressource;
-	Etiquette() : cleSommet(0), cout(0), ressource(0) {};
-	Etiquette(int cle, int cout, int ressource) : cleSommet(cle), cout(cout), ressource(ressource){};
-	friend ostream & operator<<(ostream &os, Etiquette &s);
-	~Etiquette() {};
-};
 
+	//!
+	//! \brief Constructeur par defaut
+	//!
+	Etiquette();
+
+	//!
+	//! \brief Constructeur
+	//! \param cle, cout, ressource
+	//!
+	Etiquette(int cle, int cout, int ressource);
+	
+	//!
+	//! \brief Destructeur
+	//!
+	virtual ~Etiquette()
+	{}
+
+	//!
+	//! \brief surcharge operateur <<
+	//!
+	friend ostream & operator<<(ostream &os, Etiquette &s);
+};

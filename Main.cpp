@@ -1,9 +1,12 @@
+//!
+//! \file Main.cpp
+//!
+#include <iostream>
 #include "Sommet.h"
 #include "Arc.h"
 #include "Etiquette.h"
 #include "Graphe.h"
 #include "Algo.h"
-#include <iostream>
 using namespace std;
 
 
@@ -24,24 +27,25 @@ int main()
 	Arc * arc07 = new Arc(*i3, *p0, 3, 4);
 
 	Graphe * g0 = new Graphe();
-	g0->add(*s0);
-	g0->add(*i1);
-	g0->add(*i2);
-	g0->add(*i3);
-	g0->add(*p0);
-	g0->add(*arc01);
-	g0->add(*arc02);
-	g0->add(*arc03);
-	g0->add(*arc04);
-	g0->add(*arc05);
-	g0->add(*arc06);
-	g0->add(*arc07);
+	g0->addSommet(*s0);
+	g0->addSommet(*i1);
+	g0->addSommet(*i2);
+	g0->addSommet(*i3);
+	g0->addSommet(*p0);
+	g0->addArc(*arc01);
+	g0->addArc(*arc02);
+	g0->addArc(*arc03);
+	g0->addArc(*arc04);
+	g0->addArc(*arc05);
+	g0->addArc(*arc06);
+	g0->addArc(*arc07);
 
 	g0->setSource(*s0);
 	g0->setPuits(*p0);
 
 	Algo::fixationEtiquette(*g0);
 	cout << *g0;
-	system("pause");
+
+	//system("pause");
 	return 0;
 }
