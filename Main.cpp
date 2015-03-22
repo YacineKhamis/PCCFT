@@ -39,8 +39,18 @@ int main()
 
 	g0->setSource(*s0);
 	g0->setPuits(*p0);
-
+	Etiquette * eTest1 = new Etiquette(0, 3, 5);
+	Etiquette * eTest2 = new Etiquette(0, 2, 7);
+	Etiquette * eTest3 = new Etiquette(0, 2, 3);
+	s0->ajoutPareto(*eTest1);
+	s0->ajoutPareto(*eTest2);
+	s0->ajoutPareto(*eTest3);
+	cout << "Graphe initial : " << endl;
+	cout << *g0 << endl << endl;
+	cout << "Calcul de la solution en cours... " << endl;
 	Algo::fixationEtiquette(*g0);
+	cout << "Affichage de la solution : " << endl;
+
 	cout << *g0;
 	system("pause");
 	return 0;

@@ -1,4 +1,5 @@
 #include "Graphe.h"
+#include "Algo.h"
 
 void Graphe::add(const Sommet &sommet)
 {
@@ -16,6 +17,15 @@ ostream & operator<<(ostream &os, Graphe &g)
 		os << sommet;
 	for (auto arc : g.arcs)
 		os << arc;
+	os << "---Chemin solution---" << endl;
+	if (!g.solution.empty())
+	{
+		for (auto sommet : g.solution)
+			os << sommet.cle << " ";
+		os << endl;
+	}
+	else
+		os << "Solution non calculee" << endl;
 	return os;
 }
 
@@ -36,13 +46,14 @@ vector<Sommet> Graphe::successeurs(const Sommet &s)
 	return solution;
 }
 
-Sommet* Graphe::getPtrSommet(int cle)
+int Graphe::getPtrSommet(int cle)
 {
-	for (auto sommet : this->sommets)
+	for (vector<Sommet>::iterator it = this->sommets.begin(); it != this->sommets.end(); it++)
 	{
-		if (sommet.cle == cle)
-			return &sommet;
+		if (it->cle == cle)
+			return it->cle;
 	}
+	return -1;
 }
 
 void Graphe::setSource(const Sommet &s)

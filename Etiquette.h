@@ -13,6 +13,7 @@ public:
 	Etiquette() : cleSommet(0), cout(0), ressource(0) {};
 	Etiquette(int cle, int cout, int ressource) : cleSommet(cle), cout(cout), ressource(ressource){};
 	friend ostream & operator<<(ostream &os, Etiquette &s);
+	bool operator==(const Etiquette &e);
 	~Etiquette() {};
 };
 

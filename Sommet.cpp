@@ -42,24 +42,41 @@ bool Sommet::operator==(const Sommet &s)
 //Ajout Pareto. Renvoie vrai si l'élement a été ajouté, faux sinon.
 bool Sommet::ajoutPareto(const Etiquette &e)
 {
-	int i = 0;
-	bool etiquetteDominee = false;
-	for (auto etiquette : this->etiquettes)
+	if (this->etiquettes.empty())
 	{
-		i++;
-		if ((etiquette.cout >= e.cout && etiquette.ressource > e.ressource))
-		{
-			this->etiquettes.erase(etiquettes.begin()+i);
-		}
-		if (etiquette.cout <= e.cout && etiquette.ressource < e.ressource)
-		{
-			etiquetteDominee = true;
-		}
-	}
-	if (!etiquetteDominee)
-	{
-		etiquettes.push_back(e);
+		this->etiquettes.push_back(e);
 		return true;
 	}
-	return false;
+	else
+	{
+		bool nouvelleEtiquetteDominee = false;
+		for (vector<Etiquette>::iterator it = this->etiquettes.begin(); it != this->etiquettes.end();)
+		{
+			bool ancienneEtiquetteDominee = false;
+			if ((it->cout >= e.cout && it->ressource > e.ressource))
+			{
+				ancienneEtiquetteDominee = true;
+
+			}
+			if (it->cout <= e.cout && it->ressource < e.ressource)
+			{
+				nouvelleEtiquetteDominee = true;
+			}
+			if (ancienneEtiquetteDominee)
+			{
+					it = this->etiquettes.erase(it);
+			}
+			else
+			{
+				it++;
+			}
+		}
+		if (!nouvelleEtiquetteDominee)
+		{
+			this->etiquettes.push_back(e);
+			return true;
+		}
+		return false;
+	}
+	
 }
