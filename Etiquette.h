@@ -44,4 +44,6 @@ public:
 	//! \brief surcharge operateur <<
 	//!
 	friend ostream & operator<<(ostream &os, Etiquette &s);
+	bool operator==(const Etiquette &e);
+
 };

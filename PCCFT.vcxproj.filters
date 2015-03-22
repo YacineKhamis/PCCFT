@@ -31,6 +31,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LectureGraphe.h">
+		<Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SolutionProjet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SolutionGraphe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -54,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LectureGraphe.cpp">
+		<Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SolutionProjet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SolutionGraphe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

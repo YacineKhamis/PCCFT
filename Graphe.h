@@ -4,6 +4,7 @@
 //! \file Graphe.h
 //!
 
+#include <list>
 #include "Sommet.h"
 #include "Arc.h"
 
@@ -33,6 +34,10 @@ public:
 	vector<Arc> arcs;
 
 
+	//Solution propre au graphe
+	list<Sommet> solution;
+
+
 	//!
 	//! \brief Constructeur
 	//!
@@ -57,21 +62,26 @@ public:
 	void addArc(const Arc &arc); /*change nom par florian*/
 
 	//!
-	//! \return Sommet*
+	//! \return Sommet&
 	//!
-	Sommet getSource() const;
+	Sommet& getSource();
 	//!
 	//! \param s, const Sommet &
 	//!
 	void setSource(const Sommet &s);
 	//!
-	//! \return Sommet*
+	//! \return Sommet&
 	//!
-	Sommet getPuits() const;
+	Sommet& getPuits();
 	//!
 	//! \param s, cons Sommet &
 	//!
 	void setPuits(const Sommet &s);
+	//!
+	//! \param cle
+	//!
+	//string getPtrSommet(const string & cle) const;
+
 	
 	//!
 	//! \param cle

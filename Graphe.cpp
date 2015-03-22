@@ -2,6 +2,7 @@
 //! \file Graphe.cpp
 //!
 #include "Graphe.h"
+#include "Algo.h"
 
 
 void Graphe::addSommet(const Sommet &sommet)
@@ -31,6 +32,18 @@ vector<Sommet> Graphe::successeurs(const Sommet &s)
 	return solution;
 }
 
+/*
+string Graphe::getPtrSommet(const string & cle) const
+{
+	for (vector<Sommet>::iterator it = sommets.begin(); it != this->sommets.end(); ++it)
+	{
+		if (it->getCle() == cle)
+			return it->getCle();
+	}
+	
+	return "";
+}*/
+
 //!
 //! \return sommet si existe, NULL sinon
 //!
@@ -46,7 +59,7 @@ Sommet* Graphe::getPtrSommet(string cle) const
 	return pt;
 }
 
-Sommet Graphe::getSource() const
+Sommet& Graphe::getSource()
 {
 	return source;
 }
@@ -56,7 +69,7 @@ void Graphe::setSource(const Sommet &s)
 	this->source = s;
 }
 
-Sommet Graphe::getPuits() const
+Sommet& Graphe::getPuits()
 {
 	return puits;
 }
@@ -80,15 +93,19 @@ Arc Graphe::getArcEntreDeux(string cleSommet1, string cleSommet2) const
 
 ostream & operator<<(ostream &os, Graphe &g)
 {
-	os << "------------- Graphe ---------------" << endl;
-	
-	os << endl;
+	os << "------------Graphe---------------" << endl;
 	for (auto sommet : g.sommets)
 		os << sommet;
-
-	os << endl;
 	for (auto arc : g.arcs)
 		os << arc;
-
+	os << "---Chemin solution---" << endl;
+	if (!g.solution.empty())
+	{
+		for (auto sommet : g.solution)
+			os << sommet.getCle() << " ";
+		os << endl;
+	}
+	else
+		os << "Solution non calculee" << endl;
 	return os;
 }
