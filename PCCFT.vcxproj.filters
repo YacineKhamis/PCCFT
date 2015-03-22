@@ -30,6 +30,12 @@
     <ClInclude Include="Algo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SolutionProjet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SolutionGraphe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Arc.cpp">
@@ -48,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Algo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SolutionProjet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SolutionGraphe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
