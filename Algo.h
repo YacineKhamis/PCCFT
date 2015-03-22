@@ -6,6 +6,10 @@
 
 #include "Sommet.h"
 #include "Graphe.h"
+
+//!
+//! \class Algo
+//!
 class Algo
 {
 public:
@@ -13,4 +17,3 @@ public:
 	Algo();
 	~Algo();
 };
-

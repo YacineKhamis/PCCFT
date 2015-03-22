@@ -7,16 +7,17 @@
 #include "Etiquette.h"
 #include "Graphe.h"
 #include "Algo.h"
+#include "LectureGraphe.h"
 using namespace std;
 
 
 int main()
 {
-	Sommet * s0 = new Sommet(0, 0, 0);
-	Sommet * i1 = new Sommet(0, 5, 1);
-	Sommet * i2 = new Sommet(0, 7, 2);
-	Sommet * i3 = new Sommet(0, 8, 3);
-	Sommet * p0 = new Sommet(0, 10, 4);
+	/*Sommet * s0 = new Sommet(0, 0, "0");
+	Sommet * i1 = new Sommet(0, 5, "1");
+	Sommet * i2 = new Sommet(0, 7, "2");
+	Sommet * i3 = new Sommet(0, 8, "3");
+	Sommet * p0 = new Sommet(0, 10, "4");
 
 	Arc * arc01 = new Arc(*s0, *i1, 4, 3);
 	Arc * arc02 = new Arc(*s0, *i2, 8, 2);
@@ -45,6 +46,10 @@ int main()
 
 	Algo::fixationEtiquette(*g0);
 	cout << *g0;
+	*/
+
+	Graphe g = LectureGraphe::chargerGraphe("graphe-10.gpr");
+	cout << g;
 
 	//system("pause");
 	return 0;

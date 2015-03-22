@@ -9,7 +9,7 @@
 	g.initialiserEtiquettesSommets();
 	vector<Sommet> ouverts;
 	ouverts.push_back(g.getSource());
-	Etiquette * e = new Etiquette(ouverts.back().cle,0,0);
+	Etiquette * e = new Etiquette(ouverts.back().getCle(), 0, 0);
 	g.getSource().ajoutEtiquette(*e);
 	while (!ouverts.empty())
 	{
@@ -19,18 +19,18 @@
 		{
 			for (auto etiquette : sommetOuvert.etiquettes)
 			{
-				if (etiquette.ressource + g.getArcEntreDeux(sommetOuvert.cle, successeur.cle).ressource <= successeur.borneSup)
+				if (etiquette.ressource + g.getArcEntreDeux(sommetOuvert.getCle(), successeur.getCle()).ressource <= successeur.borneSup)
 				{
 					Etiquette * etiquetteCandidate = new Etiquette
 						(
-						sommetOuvert.cle,
-						etiquette.cout + g.getArcEntreDeux(sommetOuvert.cle, successeur.cle).cout,
-						etiquette.ressource + g.getArcEntreDeux(sommetOuvert.cle, successeur.cle).ressource
+						sommetOuvert.getCle(),
+						etiquette.cout + g.getArcEntreDeux(sommetOuvert.getCle(), successeur.getCle()).cout,
+						etiquette.ressource + g.getArcEntreDeux(sommetOuvert.getCle(), successeur.getCle()).ressource
 						);
 					//On va modifier le sommet qui se trouve dans le graphe. On travaillait avec une copie pour recuperer les donnees.
-					g.getPtrSommet(successeur.cle)->ajoutEtiquette(*etiquetteCandidate);
-					if (g.getPtrSommet(successeur.cle)->ajoutPareto(*etiquetteCandidate))
-						ouverts.push_back(*g.getPtrSommet(successeur.cle));
+					g.getPtrSommet(successeur.getCle())->ajoutEtiquette(*etiquetteCandidate);
+					if (g.getPtrSommet(successeur.getCle())->ajoutPareto(*etiquetteCandidate))
+						ouverts.push_back(*g.getPtrSommet(successeur.getCle() ));
 				}
 			}
 		}

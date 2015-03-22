@@ -4,13 +4,13 @@
 #include "Sommet.h"
 
 
-Sommet::Sommet() : borneInf(0), borneSup(0), cle(0)
+Sommet::Sommet() : borneInf(0), borneSup(0), cle("0")
 {} /*change par florian*/
 
 Sommet::Sommet(const Sommet &s) : borneInf(s.borneInf), borneSup(s.borneSup), cle(s.cle), etiquettes(s.etiquettes)
 {} /*change par florian*/
 
-Sommet::Sommet(int inf, int sup, int cle) : borneInf(inf), borneSup(sup), cle(cle)
+Sommet::Sommet(int inf, int sup, string cle) : borneInf(inf), borneSup(sup), cle(cle)
 {} /*change par florian*/
 
 ostream & operator<<(ostream &os, Sommet &s)
@@ -23,9 +23,14 @@ ostream & operator<<(ostream &os, Sommet &s)
 }
 
 
-int Sommet::getCle() const
+string Sommet::getCle() const
 {
 	return this->cle;
+}
+
+void Sommet::setCle(const string & cle)
+{
+	this->cle = cle;
 }
 
 void Sommet::ajoutEtiquette(const Etiquette &e)
@@ -60,6 +65,7 @@ bool Sommet::ajoutPareto(const Etiquette &e)
 			etiquetteDominee = true;
 		}
 	}
+
 	if (!etiquetteDominee)
 	{
 		etiquettes.push_back(e);

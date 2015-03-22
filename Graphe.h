@@ -77,12 +77,12 @@ public:
 	//! \param cle
 	//! \return pointeur sur le sommet si existe, NULL sinon
 	//!
-	Sommet* getPtrSommet(int cle) const; /*change par florian, const*/
+	Sommet* getPtrSommet(string cle) const; /*change par florian, const*/
 	
 	//!
 	//! \brief retourne arc entre deux sommets
 	//!
-	Arc getArcEntreDeux(int cleSommet1, int cleSommet2) const; /*change const*/
+	Arc getArcEntreDeux(string cleSommet1, string cleSommet2) const; /*change const*/
 	vector<Sommet> successeurs(const Sommet &s);
 	void initialiserEtiquettesSommets();
 

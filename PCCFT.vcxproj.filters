@@ -30,6 +30,9 @@
     <ClInclude Include="Algo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LectureGraphe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Arc.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Algo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LectureGraphe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

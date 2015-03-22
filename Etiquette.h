@@ -5,6 +5,7 @@
 //!
 
 #include <ostream>
+#include <string>
 using namespace std;
 
 class Sommet;
@@ -18,7 +19,7 @@ public:
 	//!
 	//! \brief Sommet de provenance
 	//!
-	int cleSommet;
+	string cleSommet;
 	int cout;
 	int ressource;
 
@@ -31,7 +32,7 @@ public:
 	//! \brief Constructeur
 	//! \param cle, cout, ressource
 	//!
-	Etiquette(int cle, int cout, int ressource);
+	Etiquette(string cle, int cout, int ressource);
 	
 	//!
 	//! \brief Destructeur

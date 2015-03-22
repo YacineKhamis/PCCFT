@@ -32,17 +32,18 @@ vector<Sommet> Graphe::successeurs(const Sommet &s)
 }
 
 //!
-//! \return pointeur sur le sommet si existe, NULL sinon
+//! \return sommet si existe, NULL sinon
 //!
-Sommet* Graphe::getPtrSommet(int cle) const
+Sommet* Graphe::getPtrSommet(string cle) const
 {
+	Sommet* pt = NULL;
 	for (auto sommet : this->sommets)
 	{
-		if (sommet.cle == cle)
-			return &sommet;
+		if (sommet.getCle() == cle)
+			pt = new Sommet(sommet);
 	}
 
-	return NULL;
+	return pt;
 }
 
 Sommet Graphe::getSource() const
@@ -65,12 +66,12 @@ void Graphe::setPuits(const Sommet &s)
 	this->puits = s;
 }
 
-Arc Graphe::getArcEntreDeux(int cleSommet1, int cleSommet2) const
+Arc Graphe::getArcEntreDeux(string cleSommet1, string cleSommet2) const
 {
 	Arc solution;
 	for (auto arc : this->arcs)
 	{
-		if (arc.debut.cle == cleSommet1 && arc.fin.cle == cleSommet2)
+		if (arc.debut.getCle() == cleSommet1 && arc.fin.getCle() == cleSommet2)
 			solution = arc;
 	}
 	return solution;

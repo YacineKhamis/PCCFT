@@ -4,10 +4,10 @@
 #include "Etiquette.h"
 
 
-Etiquette::Etiquette() : cleSommet(0), cout(0), ressource(0)
+Etiquette::Etiquette() : cleSommet("0"), cout(0), ressource(0)
 {}
 
-Etiquette::Etiquette(int cle, int cout, int ressource) : cleSommet(cle), cout(cout), ressource(ressource)
+Etiquette::Etiquette(string cle, int cout, int ressource) : cleSommet(cle), cout(cout), ressource(ressource)
 {}
 
 ostream & operator<<(ostream &os, Etiquette &s)

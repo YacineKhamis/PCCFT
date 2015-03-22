@@ -6,6 +6,7 @@
 
 #include <ostream>
 #include <vector>
+#include <string>
 #include "Etiquette.h"
 using namespace std;
 
@@ -15,13 +16,16 @@ using namespace std;
 //!
 class Sommet
 {
+private:
+	//!
+	//! \brief Cle permettant d'identifier le sommet
+	//!
+	string cle;
+
 public:
 	//! \brief Borne sup et inf du sommet (contraintes)
 	int borneInf;
 	int borneSup;
-
-	//! \brief Cle permettant d'identifier le sommet
-	int cle;
 
 	//! \brief Chaque sommet possède une collection d'étiquette
 	vector<Etiquette> etiquettes;
@@ -37,7 +41,7 @@ public:
 	//!
 	//! \brief Construteur
 	//!
-	Sommet(int inf, int sup, int cle); /*change par florian*/
+	Sommet(int inf, int sup, string cle); /*change par florian*/
 
 	//!
 	//! \biref Destructeur
@@ -53,7 +57,12 @@ public:
 	//!
 	//! \return cle
 	//!
-	int getCle() const;		/*ici const change*/
+	string getCle() const;		/*ici const change*/
+
+	//!
+	//! \param string
+	//!
+	void setCle(const string &);
 
 	//!
 	//! \param e, const Etiquette &

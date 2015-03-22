@@ -82,6 +82,7 @@
     <ClInclude Include="Arc.h" />
     <ClInclude Include="Etiquette.h" />
     <ClInclude Include="Graphe.h" />
+    <ClInclude Include="LectureGraphe.h" />
     <ClInclude Include="Sommet.h" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +90,7 @@
     <ClCompile Include="Arc.cpp" />
     <ClCompile Include="Etiquette.cpp" />
     <ClCompile Include="Graphe.cpp" />
+    <ClCompile Include="LectureGraphe.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sommet.cpp" />
   </ItemGroup>
