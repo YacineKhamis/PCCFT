@@ -1,19 +1,52 @@
 #pragma once
+
+//!
+//! \file Arc.h
+//!
+
 #include "Sommet.h"
+
+//!
+//! \class Arc
+//!
 class Arc
 {
 public:
-	//Sommets debut et fin de l'arc
+	//!
+	//! \brief Sommet debut de l'arc
+	//!
 	Sommet debut;
+	//!
+	//! \brief Sommet fin de l'arc
+	//!
 	Sommet fin;
 
-	//Valuation de l'arc
+	//!
+	//! \brief Valuation de l'arc
+	//!
 	int cout;
+	//!
+	//! \brief Ressource necessaire pour l'arc
+	//!
 	int ressource;
 
-	Arc() : debut(), fin(), cout(0), ressource(0) {};
-	Arc(const Sommet &debut, const Sommet &fin, int cout, int ressource) : debut(debut), fin(fin), cout(cout), ressource(ressource) {};
+	//!
+	//! \brief Constructeur par defaut
+	//!
+	Arc();	/*change par florian, voir cpp*/
+
+	//!
+	//! \brief Constructeur
+	//! \param debut, fin, cout, ressource
+	//!
+	Arc(const Sommet &debut, const Sommet &fin, int cout, int ressource);
+
+	//!
+	//! \brief Destructeur
+	//!
+	virtual ~Arc()
+	{}
+
 	friend ostream & operator<<(ostream &os, Arc &a);
-	~Arc() {};
 };
 

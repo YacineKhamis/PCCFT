@@ -1,14 +1,17 @@
+//!
+//! \file Algo.cpp
+//!
 #include "Algo.h"
 
 
-void Algo::fixationEtiquette(Graphe &g)
+/*static*/ void Algo::fixationEtiquette(Graphe &g)
 {
 	g.initialiserEtiquettesSommets();
 	vector<Sommet> ouverts;
 	
-	Etiquette * e = new Etiquette(g.source.cle,0,0);
-	g.source.ajoutEtiquette(*e);
-	ouverts.push_back(g.source);
+	Etiquette * e = new Etiquette(g.getSource().cle,0,0);
+	g.getSource().ajoutEtiquette(*e);
+	ouverts.push_back(g.getSource());
 	while (!ouverts.empty())
 	{
 		Sommet sommetOuvert = ouverts.back();
@@ -37,8 +40,8 @@ void Algo::fixationEtiquette(Graphe &g)
 	}
 
 	//Etiquettes calculees
-	int cleCourante = g.puits.cle;
-	while (cleCourante != g.source.cle)
+	int cleCourante = g.getPuits().cle;
+	while (cleCourante != g.getSource().cle)
 	{
 		Sommet solution = g.sommets[g.getPtrSommet(cleCourante)];
 		g.solution.push_front(solution);
@@ -54,8 +57,9 @@ void Algo::fixationEtiquette(Graphe &g)
 		}
 		cleCourante = prochaineCle;
 	}
-	g.solution.push_front(g.sommets[g.getPtrSommet(g.source.cle)]);
+	g.solution.push_front(g.sommets[g.getPtrSommet(g.getSource().cle)]);
 }
+
 
 Algo::Algo()
 {

@@ -1,36 +1,98 @@
 #pragma once
+
+//!
+//! \file Graphe.h
+//!
+
 #include "Sommet.h"
 #include "Arc.h"
 #include <list>
 
+//!
+//! \class Graphe
+//!
 class Graphe
 {
-public:
-	//Collection de noeuds
-	vector<Sommet> sommets;
+private:
+	//!
+	//! \brief Noeud source
+	//!
+	Sommet source;			/*change par florian, devient private, + creation getter*/
+	//!
+	//! \brief Noeud puits
+	//!
+	Sommet puits;
 
-	//Collection d'arcs
+public:
+	//!
+	//! \brief Collection de noeuds
+	//!
+	vector<Sommet> sommets;
+	//!
+	//! \brief Collection d'arcs
+	//!
 	vector<Arc> arcs;
+
 
 	//Solution propre au graphe
 	list<Sommet> solution;
 
-	//Noeud source
-	Sommet source;
-	//Noeud puits
-	Sommet puits;
 
-	Graphe(){};
+	//!
+	//! \brief Constructeur
+	//!
+	Graphe()
+	{}
 
-	void add(const Sommet &sommet);
-	void add(const Arc &arc);
+	//!
+	//! \brief Destructeur
+	//!
+	virtual ~Graphe()
+	{}
+
+	//!
+	//! \param sommet
+	//! \brief ajoute un sommet
+	//!
+	void addSommet(const Sommet &sommet); /*change nom par florian*/
+	//!
+	//! \param arc
+	//! \brief ajoute un arc
+	//!
+	void addArc(const Arc &arc); /*change nom par florian*/
+
+	//!
+	//! \return Sommet&
+	//!
+	Sommet& getSource();
+	//!
+	//! \param s, const Sommet &
+	//!
 	void setSource(const Sommet &s);
+	//!
+	//! \return Sommet&
+	//!
+	Sommet& getPuits();
+	//!
+	//! \param s, cons Sommet &
+	//!
 	void setPuits(const Sommet &s);
+
 	int getPtrSommet(int cle);
-	Arc getArcEntreDeux(int cleSommet1,int cleSommet2);
+
+	
+	//!
+	//! \param cle
+	//! \return pointeur sur le sommet si existe, NULL sinon
+	//!
+	Sommet* getPtrSommet(int cle) const; /*change par florian, const*/
+	
+	//!
+	//! \brief retourne arc entre deux sommets
+	//!
+	Arc getArcEntreDeux(int cleSommet1, int cleSommet2) const; /*change const*/
 	vector<Sommet> successeurs(const Sommet &s);
 	void initialiserEtiquettesSommets();
-	friend ostream & operator<<(ostream &os, Graphe &g);
-	~Graphe();
-};
 
+	friend ostream & operator<<(ostream &os, Graphe &g);
+};
